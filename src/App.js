@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import takeData from './data.js' ;
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import './css/Header.css'
-import './css/Header.css'
 import './css/Slider.css'
 import Slider from "./components/Slider";
 
@@ -17,10 +15,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Slider />
-      <Products products={products} />
-      <Footer />
+        <Header />
+        <div className="p-5">
+            <Slider />
+            <Products products={products} />
+        </div>
+        <Footer />
+
     </div>
   );
 }

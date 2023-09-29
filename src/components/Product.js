@@ -1,21 +1,19 @@
 function Product({product}){
     return(
-        <div className="flex p-6 font-mono flex-basis-1/2">
+        <div className="flex p-10 font-mono flex-basis-1/2">
             <div className="flex-none w-48 mb-10 relative z-10 before:absolute before:top-1 before:left-1 before:w-full before:h-full before:bg-teal-400">
-                <img src={product.image} alt="" className="absolute z-10 inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+                <img src={product.images[0]} alt="" className="absolute z-10 inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
             </div>
             <form className="flex-auto pl-6">
                 <div className="relative flex flex-wrap items-baseline pb-6 before:bg-black before:absolute before:-top-6 before:bottom-0 before:-left-60 before:-right-6">
                     <h1 className="relative w-full flex-none mb-2 text-2xl font-semibold text-white">
-                        {
-                            product.title.length > 35 ? product.title.slice(0, 10) : product.title
-                        }
+                        {product.title}
                     </h1>
                     <div className="relative text-lg text-white">
-                        $89.00
+                        ${product.price}
                     </div>
                     <div className="relative uppercase text-teal-400 ml-3">
-                        In stock
+                        In stock: {product.stock}
                     </div>
                 </div>
                 <div className="flex items-baseline my-6">
@@ -35,8 +33,8 @@ function Product({product}){
                         </svg>
                     </button>
                 </div>
-                <p class="text-xs leading-6 text-slate-500">
-                    Free shipping on all continental US orders.
+                <p class="text-xs uppercase underline leading-6 text-slate-500">
+                    Category: {product.category}
                 </p>
             </form>
         </div>
