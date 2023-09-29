@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+
+    background-color: red;
+    border: 1px solid black;
+}
+
+.logo {
+    margin-top: auto;
+    height: 120%;
+}
