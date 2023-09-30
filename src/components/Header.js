@@ -1,104 +1,271 @@
-import Logo from '../img/logo.png'
+import React from "react";
+import {
+    Navbar,
+    Collapse,
+    Typography,
+    Button,
+    IconButton,
+    List,
+    ListItem,
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem,
+    Chip,
+} from "@material-tailwind/react";
+import {
+    ChevronDownIcon,
+    UserCircleIcon,
+    CubeTransparentIcon,
+    Bars3Icon,
+    XMarkIcon,
+    FlagIcon,
+    ChatBubbleOvalLeftIcon,
+    UsersIcon,
+    FolderIcon,
+    Square3Stack3DIcon,
+    RocketLaunchIcon,
+    FaceSmileIcon,
+    PuzzlePieceIcon,
+    GiftIcon,
+} from "@heroicons/react/24/outline";
 
-function Header(){
-    return(
-        <nav className="bg-gray-800 h-20 ">
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-12">
-                <div className="relative flex h-16 items-center justify-between">
-                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="hidden sm:ml-6 sm:block">
-                            <div className="flex space-x-10 pt-5">
-                                <img src={Logo} alt="logo" className="h-10 w-10" />
-                                <a href="#" className="bg-gray-900 text-white rounded-md px-3 py-2 text-2xl font-medium" aria-current="page">SHIRE</a>
-                                <form>
-                                    <div className="flex">
-                                        <label htmlFor="search-dropdown" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
-                                        <button id="dropdown-button" data-dropdown-toggle="dropdown" className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">All categories <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                        </svg></button>
-                                        <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                                                <li>
-                                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
-                                                </li>
-                                                <li>
-                                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
-                                                </li>
-                                                <li>
-                                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
-                                                </li>
-                                                <li>
-                                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="relative w-full">
-                                            <input type="search" id="search-dropdown" className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search Mockups, Logos, Design Templates..." required />
-                                                <button type="submit" className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                                    </svg>
-                                                    <span className="sr-only">Search</span>
-                                                </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 pt-5">
-                        <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign In</button>
-                        <button type="button" className="mr-5 text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Sign Up</button>
-                        <button type="button" className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25" stroke-width="1" stroke="currentColor" className="file: h-7 w-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+const colors = {
+    blue: "bg-blue-50 text-blue-500",
+    orange: "bg-orange-50 text-orange-500",
+    green: "bg-green-50 text-green-500",
+    "blue-gray": "bg-blue-gray-50 text-blue-gray-500",
+    purple: "bg-purple-50 text-purple-500",
+    teal: "bg-teal-50 text-teal-500",
+    cyan: "bg-cyan-50 text-cyan-500",
+    pink: "bg-pink-50 text-pink-500",
+};
 
-            <div class="sm:hidden" id="mobile-menu">
-                <div class="space-y-1 px-2 pb-3 pt-2">
-                    <img src={Logo} alt="logo" className="h-10 w-10" />
-                    <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">SHIRE</a>
-                    <form>
-                        <div className="flex">
-                            <label htmlFor="search-dropdown" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
-                            <button id="dropdown-button" data-dropdown-toggle="dropdown" className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">All categories <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                            </svg></button>
-                            <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                                    <li>
-                                        <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
-                                    </li>
-                                    <li>
-                                        <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="relative w-full">
-                                <input type="search" id="search-dropdown" className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search Mockups, Logos, Design Templates..." required />
-                                <button type="submit" className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                    </svg>
-                                    <span className="sr-only">Search</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+const navListMenuItems = [
+    {
+        color: "blue",
+        icon: FlagIcon,
+        title: "About us",
+        description: "Learn about our story and our mission statement.",
+    },
+    {
+        color: "orange",
+        icon: ChatBubbleOvalLeftIcon,
+        title: "Press",
+        description: "News and writings, press releases, and resources",
+    },
+    {
+        color: "green",
+        icon: UsersIcon,
+        title: (
+            <div className="flex items-center gap-1">
+                Careers{" "}
+                <Chip
+                    size="sm"
+                    color="green"
+                    variant="ghost"
+                    value="We're hiring!"
+                    className="capitalize"
+                />
             </div>
-        </nav>
-)
+        ),
+        description: "We are always looking for talented people. Join us!",
+    },
+    {
+        color: "blue-gray",
+        icon: FolderIcon,
+        title: "Legal",
+        description: "All the stuff that we dan from legal made us add.",
+    },
+    {
+        color: "purple",
+        icon: RocketLaunchIcon,
+        title: "Products",
+        description: "Checkout our products that helps a startup running.",
+    },
+    {
+        color: "teal",
+        icon: FaceSmileIcon,
+        title: "Icons",
+        description: "Set of beautiful icons that you can use in your project.",
+    },
+    {
+        color: "cyan",
+        icon: PuzzlePieceIcon,
+        title: "UI Kits",
+        description: "High quality UI Kits helps you to 2x faster.",
+    },
+    {
+        color: "pink",
+        icon: GiftIcon,
+        title: "Open Source",
+        description: "List of all our open-source projects, it's all free.",
+    },
+];
+
+function NavListMenu() {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+    const renderItems = navListMenuItems.map(
+        ({ icon, title, description, color }, key) => (
+            <a href="#" key={key}>
+                <MenuItem className="flex items-center gap-3 rounded-lg">
+                    <div className={`rounded-lg p-5 ${colors[color]}`}>
+                        {React.createElement(icon, {
+                            strokeWidth: 2,
+                            className: "h-6 w-6",
+                        })}
+                    </div>
+                    <div>
+                        <Typography
+                            variant="h6"
+                            color="blue-gray"
+                            className="flex items-center text-sm"
+                        >
+                            {title}
+                        </Typography>
+                        <Typography variant="small" color="gray" className="font-normal">
+                            {description}
+                        </Typography>
+                    </div>
+                </MenuItem>
+            </a>
+        )
+    );
+
+    return (
+        <React.Fragment>
+            <Menu
+                open={isMenuOpen}
+                handler={setIsMenuOpen}
+                offset={{ mainAxis: 20 }}
+                placement="bottom"
+                allowHover={true}
+            >
+                <MenuHandler>
+                    <Typography as="div" variant="small" className="font-normal">
+                        <ListItem
+                            className="flex items-center gap-2 py-2 pr-4"
+                            selected={isMenuOpen || isMobileMenuOpen}
+                            onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+                        >
+                            <Square3Stack3DIcon className="h-[18px] w-[18px]" />
+                            Resources
+                            <ChevronDownIcon
+                                strokeWidth={2.5}
+                                className={`hidden h-3 w-3 transition-transform lg:block ${
+                                    isMenuOpen ? "rotate-180" : ""
+                                }`}
+                            />
+                            <ChevronDownIcon
+                                strokeWidth={2.5}
+                                className={`block h-3 w-3 transition-transform lg:hidden ${
+                                    isMobileMenuOpen ? "rotate-180" : ""
+                                }`}
+                            />
+                        </ListItem>
+                    </Typography>
+                </MenuHandler>
+                <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
+                    <ul className="grid grid-cols-4 gap-y-2">{renderItems}</ul>
+                </MenuList>
+            </Menu>
+            <div className="block lg:hidden">
+                <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+            </div>
+        </React.Fragment>
+    );
 }
 
-export default Header;
+function NavList() {
+    return (
+        <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
+            <Typography
+                as="a"
+                href="#"
+                variant="small"
+                color="blue-gray"
+                className="font-normal"
+            >
+                <ListItem className="flex items-center gap-2 py-2 pr-4">
+                    <CubeTransparentIcon className="h-[18px] w-[18px]" />
+                    Blocks
+                </ListItem>
+            </Typography>
+            <NavListMenu />
+            <Typography
+                as="a"
+                href="#"
+                variant="small"
+                color="blue-gray"
+                className="font-normal"
+            >
+                <ListItem className="flex items-center gap-2 py-2 pr-4">
+                    <UserCircleIcon className="h-[18px] w-[18px]" />
+                    Account
+                </ListItem>
+            </Typography>
+        </List>
+    );
+}
+
+export function NavbarWithMegaMenu() {
+    const [openNav, setOpenNav] = React.useState(false);
+
+    React.useEffect(() => {
+        window.addEventListener(
+            "resize",
+            () => window.innerWidth >= 960 && setOpenNav(false)
+        );
+    }, []);
+
+    return (
+        <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
+            <div className="flex items-center justify-between text-blue-gray-900">
+                <Typography
+                    as="a"
+                    href="#"
+                    variant="h6"
+                    className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+                >
+                    Material Tailwind
+                </Typography>
+                <div className="hidden lg:block">
+                    <NavList />
+                </div>
+                <div className="hidden gap-2 lg:flex">
+                    <Button variant="text" size="sm" color="blue-gray">
+                        Sign In
+                    </Button>
+                    <Button variant="gradient" size="sm">
+                        Sign Up
+                    </Button>
+                </div>
+                <IconButton
+                    variant="text"
+                    color="blue-gray"
+                    className="lg:hidden"
+                    onClick={() => setOpenNav(!openNav)}
+                >
+                    {openNav ? (
+                        <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+                    ) : (
+                        <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+                    )}
+                </IconButton>
+            </div>
+            <Collapse open={openNav}>
+                <NavList />
+                <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+                    <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
+                        Sign In
+                    </Button>
+                    <Button variant="gradient" size="sm" fullWidth>
+                        Sign Up
+                    </Button>
+                </div>
+            </Collapse>
+        </Navbar>
+    );
+}

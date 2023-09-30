@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const takeData = async () => {
-    const response = await axios.get("https://dummyjson.com/products");
+const takeData = async (url) => {
+    const response = await axios.get(`https://dummyjson.com/products/category/${url}`);
+
     return response.data.products;
 }
 
-export default takeData;
+
+export default takeData
