@@ -151,7 +151,7 @@ function NavListMenu() {
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
                         >
                             <Square3Stack3DIcon className="h-[18px] w-[18px]" />
-                            Resources
+                            Categories
                             <ChevronDownIcon
                                 strokeWidth={2.5}
                                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -190,7 +190,7 @@ function NavList() {
             >
                 <ListItem className="flex items-center gap-2 py-2 pr-4">
                     <CubeTransparentIcon className="h-[18px] w-[18px]" />
-                    Blocks
+                    Home
                 </ListItem>
             </Typography>
             <NavListMenu />
@@ -201,9 +201,9 @@ function NavList() {
                 color="blue-gray"
                 className="font-normal"
             >
-                <ListItem className="flex items-center gap-2 py-2 pr-4">
+                <ListItem className="flex items-center gap-2 py-2 pr-4 pl-[250px]">
                     <UserCircleIcon className="h-[18px] w-[18px]" />
-                    Account
+                    Cart
                 </ListItem>
             </Typography>
         </List>
@@ -229,7 +229,7 @@ export function NavbarWithMegaMenu() {
                     variant="h6"
                     className="mr-4 cursor-pointer py-1.5 lg:ml-2"
                 >
-                    Material Tailwind
+                    SHIRE
                 </Typography>
                 <div className="hidden lg:block">
                     <NavList />

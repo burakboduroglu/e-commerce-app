@@ -12,10 +12,12 @@ const Slider = () => {
         <Slide>
             <div className="each-slide-effect">
                 <div style={{ 'backgroundImage': `url(${images[0]})` }}>
+                    <span className="border-gray-50 rounded">Welcome to SHIRE</span>
                 </div>
             </div>
             <div className="each-slide-effect">
                 <div style={{ 'backgroundImage': `url(${images[1]})` }}>
+                    <span className="border-gray-50 rounded">Welcome to SHIRE</span>
                 </div>
             </div>
         </Slide>

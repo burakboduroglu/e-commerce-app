@@ -23,7 +23,11 @@ export function EcommerceCard({product}) {
                         {product.title}
                     </Typography>
                     <Typography color="blue-gray" className="font-medium">
+<<<<<<< Updated upstream
                         {product.price}.00 $
+=======
+                        $ {product.price}
+>>>>>>> Stashed changes
                     </Typography>
                 </div>
                 <Typography
