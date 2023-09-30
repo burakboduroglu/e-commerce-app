@@ -31,11 +31,11 @@ function App() {
         </div>
         <div className="mt-3 flex items-center justify-center">
             <h4 className="bg-red-50 rounded">Category:
-                <span className="pl-1 capitalize font-sans font-sm font-bold text-cyan-800">{products[1].category}</span>
+                <span className="pl-1 capitalize font-sans font-sm font-bold text-cyan-800">{products?.[1]?.category}</span>
             </h4>
         </div>
         <div className="mt-3 flex items-center justify-center">
-            <Products products={products}/>
+         {products?.length > 0 &&   <Products products={products}/>}
         </div>
         <div className="mt-3">
             <Footer />
