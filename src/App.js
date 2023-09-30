@@ -7,11 +7,13 @@ import './css/Slider.css'
 import Slider from "./components/Slider";
 import search from "./search";
 import {NavbarWithMegaMenu} from "./components/Header";
+import Category from "./components/Category";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    takeData('tops').then((data) => setProducts(data));
+    takeData('https://dummyjson.com/products/').then((data) => setProducts(data));
   }, []);
 
   return (
@@ -20,6 +22,8 @@ function App() {
         <div>
             <Slider />
             <Products products={products}/>
+            {/*<Category categoryName="sunglasses"/>*/}
+            {/*<SearchResults searched={"phone"}/>*/}
         </div>
 
         <Footer />
