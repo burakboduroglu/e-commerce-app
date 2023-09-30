@@ -3,11 +3,11 @@ import takeData from '../data.js' ;
 import { useState, useEffect } from 'react';
 
 function SearchResults({searched}){
-    const link="https://dummyjson.com/products/search?q="+searched;
+    const link="https://dummyjson.com/products/search?q=" + searched;
     const [products, setProducts] = useState([]);
-  useEffect(() => {
-    takeData(link).then((data) => setProducts(data));
-  }, []);
+    useEffect(() => {
+     takeData(link).then((data) => setProducts(data));
+     }, []);
     return(
         <div>
             <h5>Search results for "{searched}"</h5>

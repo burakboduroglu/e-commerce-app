@@ -13,11 +13,7 @@ import SearchResults from "./components/SearchResults";
 function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-<<<<<<< Updated upstream
     takeData('https://dummyjson.com/products/').then((data) => setProducts(data));
-=======
-    takeData('skincare').then((data) => setProducts(data));
->>>>>>> Stashed changes
   }, []);
 
   return (
@@ -29,16 +25,17 @@ function App() {
             <Slider />
         </div>
         <div className="mt-3 flex items-center justify-center">
-            <h3 className="uppercase font-sans text-xl font-bold">Products</h3>
+            <h3 className="uppercase font-sans text-xl font-bold">
+                Products
+            </h3>
         </div>
         <div className="mt-3 flex items-center justify-center">
-            <h4 className="bg-red-50 rounded">Category: <span className="uppercase font-sans font-sm font-bold">{products[0].category}</span></h4>
+            <h4 className="bg-red-50 rounded">Category:
+                <span className="pl-1 capitalize font-sans font-sm font-bold text-cyan-800">{products[1].category}</span>
+            </h4>
         </div>
         <div className="mt-3 flex items-center justify-center">
-
             <Products products={products}/>
-            {/*<Category categoryName="sunglasses"/>*/}
-            {/*<SearchResults searched={"phone"}/>*/}
         </div>
         <div className="mt-3">
             <Footer />

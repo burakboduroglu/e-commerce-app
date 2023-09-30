@@ -201,7 +201,7 @@ function NavList() {
                 color="blue-gray"
                 className="font-normal"
             >
-                <ListItem className="flex items-center gap-2 py-2 pr-4 pl-[250px]">
+                <ListItem className="flex items-center gap-2 py-2 pr-4 ml-20">
                     <UserCircleIcon className="h-[18px] w-[18px]" />
                     Cart
                 </ListItem>
