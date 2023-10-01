@@ -31,6 +31,7 @@ import {
     HomeIcon,
     ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 const colors = {
     blue: "bg-blue-50 text-blue-500",
@@ -181,6 +182,8 @@ function NavListMenu() {
 }
 
 function NavList() {
+    const navigate = useNavigate()
+
     return (
         <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
             <Typography
@@ -190,7 +193,11 @@ function NavList() {
                 color="blue-gray"
                 className="font-normal"
             >
-                <ListItem className="flex items-center gap-2 py-2 pr-4">
+                <ListItem
+                 onClick={()=>{
+                    navigate("/")
+                 }}
+                className="flex items-center gap-2 py-2 pr-4">
                     <HomeIcon className="h-[18px] w-[18px]" />
                     Home
                 </ListItem>
@@ -203,7 +210,11 @@ function NavList() {
                 color="blue-gray"
                 className="font-normal"
             >
-                <ListItem className="flex items-center gap-2 py-2 pr-4 ml-20">
+                <ListItem
+                onClick={()=>{
+                    navigate("/checkout")
+                }}
+                className="flex items-center gap-2 py-2 pr-4 ml-20">
                     <ShoppingBagIcon className="h-[18px] w-[18px]" />
                     Cart
                 </ListItem>
@@ -214,7 +225,7 @@ function NavList() {
 
 export function NavbarWithMegaMenu() {
     const [openNav, setOpenNav] = React.useState(false);
-
+    const navigate = useNavigate()
     React.useEffect(() => {
         window.addEventListener(
             "resize",
@@ -226,6 +237,9 @@ export function NavbarWithMegaMenu() {
         <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
             <div className="flex items-center justify-between text-blue-gray-900">
                 <Typography
+                    onClick={()=>{
+                        navigate("/")
+                    }}
                     as="a"
                     href="#"
                     variant="h6"
