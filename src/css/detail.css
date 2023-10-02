@@ -1,3 +1,4 @@
+/*
 *,
 *::after,
 *::before {
@@ -5,7 +6,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+*/
 
+/*
 :root {
 	font-size: 16px;
 	font-family: serif;
@@ -16,6 +19,7 @@
 	--theme-color-darker: rgb(188, 67, 0);
 	scroll-behavior: smooth;
 }
+*/
 
 .back-button img {
 	height: 2rem;
