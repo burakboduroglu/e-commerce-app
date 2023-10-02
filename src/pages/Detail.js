@@ -4,6 +4,8 @@ import "../css/detail.css";
 import { useEffect, useState } from "react";
 import { NavbarWithMegaMenu } from "../components/Header";
 import Footer from "../components/Footer";
+import ArrowLogo from "../img/arrow-left.svg"
+import CartLogo from "../img/cart.svg"
 
 function Detail() {
   let { productId } = useParams();
@@ -23,31 +25,31 @@ function Detail() {
     <div className="main">
       <NavbarWithMegaMenu />
       <div className="product-container">
-        <a href="#" className="back-button">
-          <img src="./images/arrow-left.svg" alt="" />
+        <a href="/" className="back-button">
+          <img src={ArrowLogo} alt="" />
         </a>
         <div className="product-info">
           <div className="gallery-container">
             <img
-              src="./images/ayakkabi-1.jpg"
+              src={product.images[0]}
               alt=""
               className="product-image"
             />
             <div className="product-slide-container">
               <img
-                src="./images/ayakkabi-1.jpg"
+                src={product.images[0]}
                 alt=""
                 className="sub-image sub-image-selected"
               />
-              <img src="./images/ayakkabi-2.jpg" alt="" className="sub-image" />
-              <img src="./images/ayakkabi-3.jpg" alt="" className="sub-image" />
-              <img src="./images/ayakkabi-4.jpg" alt="" className="sub-image" />
+              <img src={product.images[1]} alt="" className="sub-image" />
+              <img src={product.images[2]} alt="" className="sub-image" />
+              <img src={product.images[3]} alt="" className="sub-image" />
             </div>
           </div>
           <div className="product-right-content">
             <div>
-              <h1 className="product-name">Nike s300A423</h1>
-              <p className="product-detail">A sportive sneaker for runners</p>
+              <h1 className="product-name">{product.title}</h1>
+              <p className="product-detail">{product.description}</p>
             </div>
             <div className="price-and-rating">
               <span className="price">{product.price} $</span>
@@ -78,7 +80,7 @@ function Detail() {
                 </button>
               </div>
               <button type="button" className="add-to-cart">
-                <img src="./images/cart.svg" className="cart-svg" alt="" />
+                <img src={CartLogo} className="cart-svg" alt="" />
                 <p>Add To Cart</p>
               </button>
             </div>
