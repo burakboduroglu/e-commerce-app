@@ -11,9 +11,15 @@ import { CartContext } from "../contexts/CartContext";
 
 export function EcommerceCard({ product }) {
   const { cart, addToCart } = useContext(CartContext);
+
+
+  const handleClick = () => {
+    window.location.href = `/product/${product.id}`;
+  };
+  
   return (
-    <Card className="w-96">
-      <CardHeader shadow={false} floated={false} className="h-96">
+    <Card className="w-96" onClick={handleClick}>
+      <CardHeader shadow={false} floated={false} className="h-96 hover:cursor-pointer">
         <img
           src={product.images[0]}
           alt="card-image"
@@ -22,7 +28,7 @@ export function EcommerceCard({ product }) {
       </CardHeader>
       <CardBody>
         <div className="mb-2 flex items-center justify-between">
-          <Typography color="blue-gray" className="font-medium">
+          <Typography color="blue-gray" className="font-medium hover:cursor-pointer">
             {product.title}
           </Typography>
           <Typography color="blue-gray" className="font-medium">
