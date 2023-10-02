@@ -9,6 +9,7 @@ import {
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
+import Detail from "./Detail";
 
 export function EcommerceCard({ product }) {
   const { cart, addToCart } = useContext(CartContext);
@@ -18,6 +19,7 @@ export function EcommerceCard({ product }) {
   const handleClick = () => {
     console.log("clicked");
     navigate(`/product/${product.id}`);
+    <Detail product={product}/>
   };
 
   return (
