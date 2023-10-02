@@ -1,13 +1,15 @@
 import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from "@material-tailwind/react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import Detail from "./Detail";
 
 export function EcommerceCard({ product }) {
 	const { cart, addToCart } = useContext(CartContext);
+	
 
 	const handleClick = () => {
-		window.location.href = `/product/${product.id}`;
+		console.log("clicked");
+		<Detail product={product}/>
 	};
 
 	return (

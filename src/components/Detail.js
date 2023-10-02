@@ -1,4 +1,4 @@
-function Detail() {
+function Detail({product}) {
 	return (
 		<div className="main">
 			<div className="product-container">
@@ -21,7 +21,7 @@ function Detail() {
 							<p className="product-detail">A sportive sneaker for runners</p>
 						</div>
 						<div className="price-and-rating">
-							<span className="price">33$</span>
+							<span className="price">{product.price} $</span>
 							<div>
 								<a href="#reviews">
 									<div className="stars">
