@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
-        <div>
+        <div className='sticky top-3 z-10'>
             <NavbarWithMegaMenu />
         </div>
         <div className="mt-3">
