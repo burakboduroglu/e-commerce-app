@@ -1,5 +1,5 @@
 import { CartContext } from "../contexts/CartContext"
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 
 import {
     Navbar,
@@ -14,6 +14,7 @@ import {
     MenuList,
     MenuItem,
     Chip,
+    Input
 } from "@material-tailwind/react";
 import {
     ChevronDownIcon,
@@ -187,6 +188,7 @@ function NavList() {
     const navigate = useNavigate()
     const { cart } = useContext(CartContext);
 
+
     return (
         <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
             <Typography
@@ -205,7 +207,8 @@ function NavList() {
                     Home
                 </ListItem>
             </Typography>
-            <NavListMenu />
+
+            
             <Typography
                 as="a"
                 href="#"
@@ -227,7 +230,7 @@ function NavList() {
     );
 }
 
-export function NavbarWithMegaMenu() {
+export function NavbarWithMegaMenu({ search }) {
     const [openNav, setOpenNav] = React.useState(false);
     const navigate = useNavigate()
     React.useEffect(() => {
@@ -236,6 +239,19 @@ export function NavbarWithMegaMenu() {
             () => window.innerWidth >= 960 && setOpenNav(false)
         );
     }, []);
+
+    
+    const [value, setValue] = useState('');
+
+    const handleChange = (event) =>{
+        setValue(event.target.value)
+    }
+
+    const handleFormSubmit = (event) =>{
+        event.preventDefault();
+        search(value);
+    }
+    
 
     return (
         <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
@@ -252,9 +268,20 @@ export function NavbarWithMegaMenu() {
                 > 
                     SHIRE
                 </Typography>
+            <NavListMenu />
                 <div className="hidden lg:block">
                     <NavList />
                 </div>
+                <form onSubmit={handleFormSubmit}>
+                    <Input
+                        type="search"
+                        label="Type here..."
+                        className="pr-20"
+                        containerProps={{
+                        className: "min-w-[288px]",
+                        }}
+                        onChange={handleChange}/>
+                </form>
                 <div className="hidden gap-2 lg:flex">
                     <Button variant="text" size="sm" color="blue-gray">
                         Sign In

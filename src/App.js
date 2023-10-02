@@ -16,10 +16,16 @@ function App() {
     takeData('https://dummyjson.com/products/').then((data) => setProducts(data));
   }, []);
 
+  
+  const handleSubmit = (query) => {
+    console.log(query);
+    takeData(query).then((data) => setProducts(data))
+  }
+
   return (
     <div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
         <div className='sticky top-3 z-10'>
-            <NavbarWithMegaMenu />
+            <NavbarWithMegaMenu search={handleSubmit}/>
         </div>
         <div className="mt-3">
             <Slider />
