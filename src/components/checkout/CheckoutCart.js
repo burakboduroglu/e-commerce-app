@@ -7,7 +7,7 @@ const CartItem = ({ product }) => {
     useContext(CartContext);
 
   return (
-    <div className="flex border rounded-md overflow-none w-full h-12 border-slate-900 shadow-lg mb-3">
+    <div className="flex border border-black pr-2 rounded-md overflow-none w-full h-12 border-slate-900 shadow-lg mb-3">
       <div className="w-16">
         <img
           className="w-full h-full object-cover"
@@ -52,7 +52,7 @@ const CartItem = ({ product }) => {
   );
 };
 
-export default function CheckoutCart() {
+export default function CheckoutCart({ onContinue }) {
   const { cart } = useContext(CartContext);
 
   const totalPrice = useMemo(() => {
@@ -69,8 +69,16 @@ export default function CheckoutCart() {
           <CartItem product={item} />
         ))}
       </div>
-      <div className="flex justify-end px-4 font-bold text-lg mt-2">
+      <div className="w-full mx-auto max-w-[700px] gap-4 flex flex-col items-end justify-end px-4 font-bold text-lg mt-2">
         <p> Total Price : {totalPrice}$ </p>
+        <button
+          onClick={() => {
+            onContinue();
+          }}
+          className="border shadow-xl transition-all hover:shadow-md  px-6 py-2 rounded-md border-black"
+        >
+          Continue
+        </button>
       </div>
     </div>
   );
