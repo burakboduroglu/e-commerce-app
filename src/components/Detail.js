@@ -1,3 +1,5 @@
+// import '../css/detail.css'
+
 function Detail({product}) {
 	return (
 		<div className="main">

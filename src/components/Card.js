@@ -9,11 +9,11 @@ export function EcommerceCard({ product }) {
 
 	const handleClick = () => {
 		console.log("clicked");
-		<Detail product={product}/>
+		window.location.href = <Detail product={product}/>	
 	};
 
 	return (
-		<Card className="w-96" onClick={handleClick}>
+		<Card className="w-96">
 			<CardHeader shadow={false} floated={false} className="h-96 hover:cursor-pointer">
 				<img src={product.images[0]} alt="card-image" className="h-full w-full object-cover" />
 			</CardHeader>
