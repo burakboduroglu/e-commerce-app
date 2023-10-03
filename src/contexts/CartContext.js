@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext({
   cart: [],
@@ -8,14 +8,28 @@ export const CartContext = createContext({
   deleteItem: (id) => {},
 });
 
+const getPersisted = () => {
+  let persisted = localStorage.getItem("persisted");
+  if (persisted) return JSON.parse(persisted);
+  else {
+    localStorage.setItem("persisted", JSON.stringify([]));
+    return [];
+  }
+};
+
+const syncLocalStorage = (state) => {
+  localStorage.setItem("persisted", JSON.stringify(state));
+};
+
 export const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(getPersisted());
 
   const deleteItem = (id) => {
     const _cart = cart.filter((item) => {
       return item.id != id;
     });
     setCart(_cart);
+    syncLocalStorage(_cart);
   };
 
   const decreaseQuantity = (id) => {
@@ -31,6 +45,7 @@ export const CartContextProvider = ({ children }) => {
     _cart = _cart.filter((item) => typeof item != "undefined");
 
     setCart(_cart);
+    syncLocalStorage(_cart);
   };
 
   const increaseQuantity = (id) => {
@@ -41,6 +56,7 @@ export const CartContextProvider = ({ children }) => {
       return item;
     });
     setCart(_cart);
+    syncLocalStorage(_cart);
   };
 
   const addToCart = (product) => {
@@ -50,6 +66,7 @@ export const CartContextProvider = ({ children }) => {
     if (!isExist) {
       product.quantity = 1;
       setCart([...cart, product]);
+      syncLocalStorage([...cart, product]);
     } else {
       let _cart = cart.map((item) => {
         if (item.id == product.id) {
@@ -58,6 +75,7 @@ export const CartContextProvider = ({ children }) => {
         return item;
       });
       setCart(_cart);
+      syncLocalStorage(_cart);
     }
   };
 
