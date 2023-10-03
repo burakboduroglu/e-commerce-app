@@ -7,6 +7,8 @@ import "./css/Slider.css";
 import Slider from "./components/Slider";
 import { NavbarWithMegaMenu } from "./components/Header";
 import SearchResults from "./components/SearchResults";
+import './css/login.css';
+import './css/signup.css';
 
 function App() {
   const [products, setProducts] = useState([]);

@@ -288,10 +288,10 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
           />
         </form>
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
+          <Button variant="text" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}}>
             Sign In
           </Button>
-          <Button variant="gradient" size="sm">
+          <Button variant="gradient" size="sm" onClick={() => {navigate("/signup")}}>
             Sign Up
           </Button>
         </div>
@@ -311,10 +311,10 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
+          <Button variant="outlined" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}} fullWidth>
             Sign In
           </Button>
-          <Button variant="gradient" size="sm" fullWidth>
+          <Button variant="gradient" size="sm" fullWidth onClick={() => {navigate("/signup")}}>
             Sign Up
           </Button>
         </div>
