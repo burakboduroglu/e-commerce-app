@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const CartContext = createContext({
   cart: [],
@@ -30,6 +31,7 @@ export const CartContextProvider = ({ children }) => {
     });
     setCart(_cart);
     syncLocalStorage(_cart);
+    toast.warn("Product deleted from the cart successfully");
   };
 
   const decreaseQuantity = (id) => {
@@ -77,6 +79,7 @@ export const CartContextProvider = ({ children }) => {
       setCart(_cart);
       syncLocalStorage(_cart);
     }
+    toast.success("Product added to cart successfully !");
   };
 
   return (
