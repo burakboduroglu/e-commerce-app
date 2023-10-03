@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../css/detail.css";
 import { useParams } from "react-router-dom";
 import { NavbarWithMegaMenu } from "../components/Header";
 import Footer from "../components/Footer";
 import ArrowLogo from "../img/arrow-left.svg";
 import CartLogo from "../img/cart.svg";
+import { CartContext } from "../contexts/CartContext";
 
 function Detail() {
 	let { productId } = useParams();
 	const [product, setProduct] = useState(null);
 	const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+	const {addToCart}=useContext(CartContext);
 
 	useEffect(() => {
 		fetch(`https://dummyjson.com/products/${productId}`)
@@ -76,7 +78,11 @@ function Detail() {
 									+
 								</button>
 							</div>
-							<button type="button" className="add-to-cart">
+							<button 
+							onClick={()=>{
+								addToCart(product);
+							}}
+							type="button" className="add-to-cart">
 								<img src={CartLogo} className="cart-svg" alt="" />
 								<p>Add To Cart</p>
 							</button>
