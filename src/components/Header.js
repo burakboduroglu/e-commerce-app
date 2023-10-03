@@ -18,19 +18,10 @@ import {
 } from "@material-tailwind/react";
 import {
   ChevronDownIcon,
-  UserCircleIcon,
-  CubeTransparentIcon,
   Bars3Icon,
   XMarkIcon,
-  FlagIcon,
   HomeModernIcon,
-  UsersIcon,
-  FolderIcon,
   Square3Stack3DIcon,
-  RocketLaunchIcon,
-  FaceSmileIcon,
-  PuzzlePieceIcon,
-  GiftIcon,
   HomeIcon,
   ShoppingBagIcon,
   DevicePhoneMobileIcon,
@@ -72,58 +63,59 @@ const navListMenuItems = [
           className="capitalize"
         />
       </div>
+      
     ),
-    description: "Smartphones are now on sale!Explore the latest in mobile technology with our wide range of smartphones.",
-    categorName:"smartphones"
+    description: "Explore the latest in mobile technology with our wide range of smartphones.",
+    categoryName:"smartphones",
   },
   {
     color: "blue",
     icon: ComputerDesktopIcon,
     title: "Laptops",
     description: "Discover powerful laptops for work and play in our selection.",
-    categorName:"laptops"
+    categoryName:"laptops"
   },
   {
     color: "orange",
     icon: HomeModernIcon,
     title: "Home Decoration",
     description: "Transform your living spaces with our stylish home decoration products.",
-    categorName:"home-decoration"
+    categoryName:"home-decoration"
   },
   {
     color: "red",
     icon: WrenchScrewdriverIcon,
     title: "Motorcycle",
     description: "Ride in style and adventure with our motorcycle collection.",
-    categorName:"motorcycle"
+    categoryName:"motorcycle"
   },
   {
     color: "yellow",
     icon: LightBulbIcon,
     title: "Lighting",
     description: "Illuminate your home with our diverse range of lighting solutions.",
-    categorName:"lighting"
+    categoryName:"lighting"
   },
   {
     color: "purple",
     icon: BeakerIcon,
     title: "Fragrances",
     description: "Experience luxury scents and fragrances that captivate the senses.",
-    categorName:"fragrances"
+    categoryName:"fragrances"
   },
   {
     color: "pink",
     icon: SunIcon,
     title: "Sunglasses",
     description: "Elevate your look and protect your eyes with our trendy sunglasses.",
-    categorName:"sunglasses"
+    categoryName:"sunglasses"
   },
   {
     color: "brown",
     icon: TagIcon,
     title: "Groceries",
     description: "Stock up on essential groceries for your daily needs.",
-    categorName:"groceries"
+    categoryName:"groceries"
   },
   
 ];
@@ -131,11 +123,14 @@ const navListMenuItems = [
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description, color }, key) => (
-      <a href="#" key={key}>
-        <MenuItem className="flex items-center gap-3 rounded-lg">
+    ({ icon, title, description, color, categoryName}, key) => (
+      <a href="" key={key}>
+        <MenuItem className="flex items-center gap-3 rounded-lg" onClick={() => {
+            navigate('/category/'+categoryName);
+          }}>
           <div className={`rounded-lg p-5 ${colors[color]}`}>
             {React.createElement(icon, {
               strokeWidth: 2,

@@ -5,9 +5,12 @@ import { useState, useEffect } from 'react';
 function Category({categoryName}){
     const link="https://dummyjson.com/products/category/"+categoryName;
     const [products, setProducts] = useState([]);
-  useEffect(() => {
-    takeData(link).then((data) => setProducts(data));
-  }, []);
+    useEffect(() => {
+      fetch(link)
+        .then((res) => res.json())
+        .then((data) => setProducts(data));
+    }, []);
+
     //async sorunu var, urunler sayfada F5 attıktan sonra gorunuyor
     return(
         <div>
