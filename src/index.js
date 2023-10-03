@@ -6,7 +6,11 @@ import { ThemeProvider } from "@material-tailwind/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CheckoutPage from "./pages/CheckoutPage";
 import { CartContextProvider } from "./contexts/CartContext";
-
+import Detail from "./pages/Detail";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+import CategoryPage from "./pages/CategoryPage";
+import Category from './components/Category'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +44,5 @@ root.render(
     <CartContextProvider>
       <RouterProvider router={router} />
     </CartContextProvider>
-    <ToastContainer />
   </ThemeProvider>
 );
