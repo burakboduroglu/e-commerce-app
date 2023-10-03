@@ -1,14 +1,13 @@
 import Products from "./Products";
-import takeData from '../data.js' ;
+import takeDataFromURL from '../dataFromURL' ;
 import { useState, useEffect } from 'react';
 
 function Category({categoryName}){
     const link="https://dummyjson.com/products/category/"+categoryName;
     const [products, setProducts] = useState([]);
     useEffect(() => {
-      fetch(link)
-        .then((res) => res.json())
-        .then((data) => setProducts(data));
+        takeDataFromURL(link)
+        .then((products) => setProducts(products));
     }, []);
 
     //async sorunu var, urunler sayfada F5 attıktan sonra gorunuyor

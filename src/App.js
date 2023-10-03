@@ -5,9 +5,7 @@ import takeData from "./data.js";
 import Footer from "./components/Footer";
 import "./css/Slider.css";
 import Slider from "./components/Slider";
-import search from "./search";
 import { NavbarWithMegaMenu } from "./components/Header";
-import Category from "./components/Category";
 import SearchResults from "./components/SearchResults";
 
 function App() {
@@ -36,13 +34,11 @@ function App() {
         <h3 className="uppercase font-sans text-xl font-bold">Products</h3>
       </div>
       <div className="mt-3 flex items-center justify-center">
-        <h4 className="bg-red-50 rounded">
-          Category:
+        <h4 className="rounded">
           <span className="pl-1 capitalize font-sans font-sm font-bold text-cyan-800">
-            {products?.[1]?.category ===
-            products?.[products.length - 1]?.category
-              ? products?.[1]?.category
-              : "General"}
+            {query!=""
+              ? <SearchResults searched={query} products={products}/>
+              : "All Products"}
           </span>
         </h4>
       </div>
