@@ -61,9 +61,7 @@ export default function CheckoutCart({ onContinue }) {
       return p + price;
     }, 0);
   }, [cart]);
-  if(cart.length == 0) return <div className="flex items-center justify-center">
-    <h1 className="text-[3rem] font-bold text-center"> Your cart is empty </h1>
-  </div>
+
   return (
     <div className="h-full">
       <div className="w-full mx-auto max-w-[700px] h-full scrollbar-thin scrollbar-thumb-[black] scrollbar-track-[white]  overflow-auto">
