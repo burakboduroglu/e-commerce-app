@@ -6,29 +6,41 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
+
 
 export function EcommerceCard({ product }) {
   const { cart, addToCart } = useContext(CartContext);
 
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    window.location.href = `/product/${product.id}`;
+    console.log("clicked");
+    navigate(`/product/${product.id}`);
   };
-  
+
   return (
-    <Card className="w-96" onClick={handleClick}>
-      <CardHeader shadow={false} floated={false} className="h-96 hover:cursor-pointer">
+    <Card className="w-96">
+      <CardHeader
+        onClick={handleClick}
+        shadow={false}
+        floated={false}
+        className="h-96 hover:cursor-pointer"
+      >
         <img
           src={product.images[0]}
           alt="card-image"
           className="h-full w-full object-cover"
         />
       </CardHeader>
-      <CardBody>
+      <CardBody onClick={handleClick}>
         <div className="mb-2 flex items-center justify-between">
-          <Typography color="blue-gray" className="font-medium hover:cursor-pointer">
+          <Typography
+            color="blue-gray"
+            className="font-medium hover:cursor-pointer"
+          >
             {product.title}
           </Typography>
           <Typography color="blue-gray" className="font-medium">

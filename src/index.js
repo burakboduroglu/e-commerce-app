@@ -6,8 +6,6 @@ import { ThemeProvider } from "@material-tailwind/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CheckoutPage from "./pages/CheckoutPage";
 import { CartContextProvider } from "./contexts/CartContext";
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +16,22 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: <CheckoutPage />,
   },
+  {
+    path: "/product/:productId",
+    element: <Detail />,
+  },
+  {
+    path:"/signin",
+    element:<SignInPage/>,
+  },
+  {
+    path:"/category/:categoryName",
+    element:<CategoryPage />,
+  },
+  {
+    path:"/signup",
+    element:<SignUpPage/>,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
