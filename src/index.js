@@ -10,7 +10,10 @@ import Detail from "./pages/Detail";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import CategoryPage from "./pages/CategoryPage";
-import Category from './components/Category'
+import Category from "./components/Category";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,17 +28,17 @@ const router = createBrowserRouter([
     element: <Detail />,
   },
   {
-    path:"/signin",
-    element:<SignInPage/>,
+    path: "/signin",
+    element: <SignInPage />,
   },
   {
-    path:"/category/:categoryName",
-    element:<CategoryPage />,
+    path: "/category/:categoryName",
+    element: <CategoryPage />,
   },
   {
-    path:"/signup",
-    element:<SignUpPage/>,
-  }
+    path: "/signup",
+    element: <SignUpPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -44,5 +47,6 @@ root.render(
     <CartContextProvider>
       <RouterProvider router={router} />
     </CartContextProvider>
+    <ToastContainer />
   </ThemeProvider>
 );
