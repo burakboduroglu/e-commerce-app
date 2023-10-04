@@ -303,7 +303,7 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
             onClick={() => {
               navigate("/checkout");
             }}
-            className="flex gap-2 ml-10"
+            className="flex gap-2"
           >
             <ShoppingBagIcon className="h-[18px] w-[18px]" />
             Cart
