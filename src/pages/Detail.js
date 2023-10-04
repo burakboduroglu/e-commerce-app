@@ -11,16 +11,80 @@ function Detail() {
 	let { productId } = useParams();
 	const [product, setProduct] = useState(null);
 	const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-	const {addToCart}=useContext(CartContext);
+	const { addToCart } = useContext(CartContext);
+
+	// Review and rating state
+	const [randomReviewNumber, setRandomReviewNumber] = useState(0);
+	const [reviews, setReviews] = useState([]);
+	const [avgRating, setAvgRating] = useState(0);
+
+	// Number of products state
+	const [numberOfProducts, setNumberOfProducts] = useState(1);
 
 	useEffect(() => {
+		// Fetch product data
 		fetch(`https://dummyjson.com/products/${productId}`)
 			.then((res) => res.json())
 			.then((data) => setProduct(data));
-	}, []);
+
+		// Initialize reviews and ratings data
+		const reviewArray = [
+			{
+				point: 1,
+				comment: "I did not like it at all",
+			},
+			{
+				point: 2,
+				comment: "It came late and the box is smashed",
+			},
+			{
+				point: 3,
+				comment: "It is average",
+			},
+			{
+				point: 4,
+				comment: "Actually liked it :)",
+			},
+			{
+				point: 5,
+				comment: "Best thing I have ever had...",
+			},
+		];
+
+		const newReviews = [];
+		let totalRating = 0;
+		const randomReviewNumber = Math.floor(Math.random() * 10) + 1;
+
+		for (let i = 0; i < randomReviewNumber; i++) {
+			const randomIndex = Math.floor(Math.random() * 5);
+			totalRating += reviewArray[randomIndex].point;
+			const review = {
+				userName: randomNameLetters(),
+				rating: reviewArray[randomIndex].point,
+				comment: reviewArray[randomIndex].comment,
+			};
+			newReviews.push(review);
+		}
+
+		setRandomReviewNumber(randomReviewNumber);
+		setReviews(newReviews);
+		setAvgRating((totalRating / randomReviewNumber).toFixed(1));
+	}, [productId]);
 
 	const handleSubImageClick = (index) => {
 		setSelectedImageIndex(index);
+	};
+
+	const handleIncrement = () => {
+		if (numberOfProducts < 10) {
+			setNumberOfProducts(numberOfProducts + 1);
+		}
+	};
+
+	const handleDecrement = () => {
+		if (numberOfProducts > 1) {
+			setNumberOfProducts(numberOfProducts - 1);
+		}
 	};
 
 	return !product ? (
@@ -55,34 +119,32 @@ function Detail() {
 							<div>
 								<a href="#reviews">
 									<div className="stars">
-										<span className="avg-rating">4.2</span>
-										<span className="star"></span>
-										<span className="star"></span>
-										<span className="star"></span>
-										<span className="star"></span>
-										<span className="star"></span>
+										<span className="avg-rating">{avgRating}</span>
+										{renderRatingStars(avgRating)}
 									</div>
 									<p className="rating-text">
-										<span className="rating-number"></span> ratings
+										<span className="rating-number">{randomReviewNumber}</span> ratings
 									</p>
 								</a>
 							</div>
 						</div>
 						<div className="add-to-cart-form">
 							<div className="number-of-product">
-								<button type="button" className="minus">
+								<button type="button" className="minus" onClick={handleDecrement}>
 									-
 								</button>
-								<p className="number">1</p>
-								<button type="button" className="plus">
+								<p className="number">{numberOfProducts}</p>
+								<button type="button" className="plus" onClick={handleIncrement}>
 									+
 								</button>
 							</div>
-							<button 
-							onClick={()=>{
-								addToCart(product);
-							}}
-							type="button" className="add-to-cart">
+							<button
+								onClick={() => {
+									addToCart(product);
+								}}
+								type="button"
+								className="add-to-cart"
+							>
 								<img src={CartLogo} className="cart-svg" alt="" />
 								<p>Add To Cart</p>
 							</button>
@@ -92,21 +154,62 @@ function Detail() {
 				<div className="product-description">
 					<h2>Product Information</h2>
 					<ul className="properties">
-						<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quisquam molestiae molestias ducimus reprehenderit sunt minus doloremque suscipit consequuntur quae. Voluptates exercitationem nobis iste minus? Modi, culpa, quisquam veniam doloremque ratione pariatur explicabo beatae repellendus sed similique iste mollitia placeat vel quos officiis quis dolor totam. Quia dolor beatae fuga, modi minima vitae? Fuga inventore nam sunt molestiae sit aspernatur rerum facere alias suscipit. Officia sunt veritatis tempora ipsum ut saepe quod sint ipsa beatae amet eligendi cumque, vel aliquam quisquam velit exercitationem id voluptas distinctio eum. Harum error veniam architecto et quidem saepe distinctio similique, explicabo id aperiam vel?</li>
-						<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quisquam molestiae molestias ducimus reprehenderit sunt minus doloremque suscipit consequuntur quae. Voluptates exercitationem nobis iste minus? Modi, culpa, quisquam veniam doloremque ratione pariatur explicabo beatae repellendus sed similique iste mollitia placeat vel quos officiis quis dolor totam. Quia dolor beatae fuga, modi minima vitae? Fuga inventore nam sunt molestiae sit aspernatur rerum facere alias suscipit. Officia sunt veritatis tempora ipsum ut saepe quod sint ipsa beatae amet eligendi cumque, vel aliquam quisquam velit exercitationem id voluptas distinctio eum. Harum error veniam architecto et quidem saepe distinctio similique, explicabo id aperiam vel?</li>
-						<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quisquam molestiae molestias ducimus reprehenderit sunt minus doloremque suscipit consequuntur quae. Voluptates exercitationem nobis iste minus? Modi, culpa, quisquam veniam doloremque ratione pariatur explicabo beatae repellendus sed similique iste mollitia placeat vel quos officiis quis dolor totam. Quia dolor beatae fuga, modi minima vitae? Fuga inventore nam sunt molestiae sit aspernatur rerum facere alias suscipit. Officia sunt veritatis tempora ipsum ut saepe quod sint ipsa beatae amet eligendi cumque, vel aliquam quisquam velit exercitationem id voluptas distinctio eum. Harum error veniam architecto et quidem saepe distinctio similique, explicabo id aperiam vel?</li>
-						<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quisquam molestiae molestias ducimus reprehenderit sunt minus doloremque suscipit consequuntur quae. Voluptates exercitationem nobis iste minus? Modi, culpa, quisquam veniam doloremque ratione pariatur explicabo beatae repellendus sed similique iste mollitia placeat vel quos officiis quis dolor totam. Quia dolor beatae fuga, modi minima vitae? Fuga inventore nam sunt molestiae sit aspernatur rerum facere alias suscipit. Officia sunt veritatis tempora ipsum ut saepe quod sint ipsa beatae amet eligendi cumque, vel aliquam quisquam velit exercitationem id voluptas distinctio eum. Harum error veniam architecto et quidem saepe distinctio similique, explicabo id aperiam vel?</li>
+						<li>Product related information will be held here.</li>
+						<li>Product related information will be held here.</li>
+						<li>Product related information will be held here.</li>
+						<li>Product related information will be held here.</li>
 					</ul>
 				</div>
 				<div id="reviews">
 					<h2>Product Reviews</h2>
-					<p className="review-number-text"></p>
-					<ul className="comment-and-review"></ul>
+					<p className="review-number-text">There are {randomReviewNumber} reviews for this product.</p>
+					<ul className="comment-and-review">
+						{reviews.map((review, index) => (
+							<li key={index}>
+								<p className="user-name-capitals">{review.userName}</p>
+								<div className="stars">{renderStars(review.rating)}</div>
+								<p>{review.comment}</p>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 			<Footer />
 		</div>
 	);
+}
+
+function randomNameLetters() {
+	let nameLetters = "";
+	for (let i = 0; i < 2; i++) {
+		let randomLetter = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+		nameLetters += randomLetter.toUpperCase();
+	}
+	return nameLetters;
+}
+
+function renderStars(rating) {
+	const filledStars = Math.floor(rating);
+	const remainder = rating - filledStars;
+	const stars = [];
+
+	for (let i = 0; i < filledStars; i++) {
+		stars.push(<div key={i} className="star filled"></div>);
+	}
+
+	if (remainder > 0) {
+		stars.push(<div key="half" className="star half-filled" style={{ width: `${remainder * 100}%` }}></div>);
+	}
+
+	return stars;
+}
+
+function renderRatingStars(avgRating) {
+	const stars = [];
+	for (let i = 0; i < 5; i++) {
+		stars.push(<div key={i} className={`star ${i < avgRating ? "filled" : ""}`}></div>);
+	}
+	return stars;
 }
 
 export default Detail;
