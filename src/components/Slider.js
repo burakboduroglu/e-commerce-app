@@ -12,24 +12,26 @@ const Slider = () => {
     ];
 
     return (
-        <Slide>
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[0]})` }}>
-             
+        <div>
+            <Slide className='grid md:grid-cols-3 gap-4 sm:grid-cols-1'>
+                <div className="each-slide-effect">
+                    <div style={{ 'backgroundImage': `url(${images[0]})` }}>
+                
+                    </div>
                 </div>
-            </div>
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[1]})` }}>
-                  
-                </div>
+                <div className="each-slide-effect">
+                    <div style={{ 'backgroundImage': `url(${images[1]})` }}>
+                    
+                    </div>
 
-            </div>
-            <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[2]})` }}>
-            
                 </div>
-            </div>
-        </Slide>
+                <div className="each-slide-effect">
+                    <div style={{ 'backgroundImage': `url(${images[2]})` }}>
+                
+                    </div>
+                </div>
+            </Slide>
+        </div>
     )
 };
 
