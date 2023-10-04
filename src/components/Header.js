@@ -200,7 +200,7 @@ function NavListMenu() {
 
 function NavList() {
   const navigate = useNavigate();
-  const { cart } = useContext(CartContext);
+  
 
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
@@ -229,16 +229,6 @@ function NavList() {
         color="blue-gray"
         className="font-normal"
       >
-        <ListItem
-          onClick={() => {
-            navigate("/checkout");
-          }}
-          className="flex items-center gap-2 py-2 pr-4"
-        >
-          <ShoppingBagIcon className="h-[18px] w-[18px]" />
-          Cart
-          <p>{cart.length}</p>
-        </ListItem>
       </Typography>
     </List>
   );
@@ -253,6 +243,7 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+  const { cart } = useContext(CartContext);
 
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
@@ -287,7 +278,7 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
             }}
           />
         </form>
-        <div className="hidden gap-2 lg:flex">
+        <div className="hidden gap-2 lg:flex ml-10">
           <Button variant="text" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}}>
             Sign In
           </Button>
@@ -307,6 +298,18 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
             <Bars3Icon className="h-6 w-6" strokeWidth={2} />
           )}
         </IconButton>
+        <div>
+          <ListItem
+            onClick={() => {
+              navigate("/checkout");
+            }}
+            className="flex gap-2 ml-10"
+          >
+            <ShoppingBagIcon className="h-[18px] w-[18px]" />
+            Cart
+            <p>{cart.length}</p>
+          </ListItem>
+        </div>
       </div>
       <Collapse open={openNav}>
         <NavList />

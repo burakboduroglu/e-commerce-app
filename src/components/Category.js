@@ -3,7 +3,7 @@ import takeDataFromURL from '../dataFromURL' ;
 import { useState, useEffect } from 'react';
 
 function Category({categoryName}){
-    const link="https://dummyjson.com/products/category/"+categoryName;
+    const link="https://dummyjson.com/products/category/" + categoryName;
     const [products, setProducts] = useState([]);
     useEffect(() => {
         takeDataFromURL(link)
