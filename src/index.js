@@ -5,6 +5,7 @@ import App from "./App";
 import { ThemeProvider } from "@material-tailwind/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CheckoutPage from "./pages/CheckoutPage";
+import Page404 from "./pages/Page404"
 import { CartContextProvider } from "./contexts/CartContext";
 import Detail from "./pages/Detail";
 import SignInPage from "./pages/SignInPage";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUpPage />,
   },
+  {
+    path: "*",
+    element: <Page404 />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

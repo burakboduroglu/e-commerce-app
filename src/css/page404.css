@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+.content404{
+    display: block;
+    text-align: center;
+
+}
+.header404{
+    font-size: 175px;
+}
+.text404{
+    font-size: 30px;
+}
