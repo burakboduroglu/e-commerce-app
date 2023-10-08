@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { NavbarWithMegaMenu } from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function SingInPage() {
 	const navigate = useNavigate();
@@ -26,6 +27,11 @@ export default function SingInPage() {
 						<button>Sign in</button>
 					</div>
 				</form>
+			</div>
+			<div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
+				<div className="mt-3">
+					<Footer />
+				</div>
 			</div>
 		</div>	
 	);

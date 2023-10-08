@@ -2,6 +2,7 @@ import { Button } from '@material-tailwind/react';
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { NavbarWithMegaMenu } from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function SignUpPage() {
     const navigate = useNavigate();
@@ -46,6 +47,11 @@ export default function SignUpPage() {
                     </form>
                 </div>
             </div>
+            <div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
+				<div className="mt-3">
+					<Footer />
+				</div>
+			</div>
         </div>
   )
 }

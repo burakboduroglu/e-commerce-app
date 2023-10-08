@@ -75,25 +75,15 @@ function Detail() {
 		setSelectedImageIndex(index);
 	};
 
-	const handleIncrement = () => {
-		if (numberOfProducts < 10) {
-			setNumberOfProducts(numberOfProducts + 1);
-		}
-	};
-
-	const handleDecrement = () => {
-		if (numberOfProducts > 1) {
-			setNumberOfProducts(numberOfProducts - 1);
-		}
-	};
-
 	return !product ? (
 		<div className="w-screen h-screen">
 			<div className="w-20 h-20 rounded-full border-b-2 border-t-2 animate-spin"></div>
 		</div>
 	) : (
 		<div className="main">
-			<NavbarWithMegaMenu />
+			<div className="mt-3">
+				<NavbarWithMegaMenu />
+			</div>
 			<div className="product-container">
 				<a href="/" className="back-button">
 					<img src={ArrowLogo} alt="" />
@@ -129,15 +119,6 @@ function Detail() {
 							</div>
 						</div>
 						<div className="add-to-cart-form">
-							<div className="number-of-product">
-								<button type="button" className="minus" onClick={handleDecrement}>
-									-
-								</button>
-								<p className="number">{numberOfProducts}</p>
-								<button type="button" className="plus" onClick={handleIncrement}>
-									+
-								</button>
-							</div>
 							<button
 								onClick={() => {
 									addToCart(product);
@@ -154,10 +135,9 @@ function Detail() {
 				<div className="product-description">
 					<h2>Product Information</h2>
 					<ul className="properties">
-						<li>Product related information will be held here.</li>
-						<li>Product related information will be held here.</li>
-						<li>Product related information will be held here.</li>
-						<li>Product related information will be held here.</li>
+						<li>{product.description}</li>
+						<li>The product is refurbished, fully functional, and in acceptable condition. Backed by the 90-day Shire Renewed Guarantee.</li>
+						<li>This pre-owned product has been professionally inspected, tested and cleaned by Shire qualified vendors.</li>
 					</ul>
 				</div>
 				<div id="reviews">
@@ -174,7 +154,9 @@ function Detail() {
 					</ul>
 				</div>
 			</div>
-			<Footer />
+			<div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
+				<Footer />
+			</div>
 		</div>
 	);
 }
