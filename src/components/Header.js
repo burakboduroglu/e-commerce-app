@@ -272,7 +272,7 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
             <Input
               type="search"
               label="Type here..."
-              className="pr-20"
+              className="hover:cursor-pointer"
               containerProps={{
                 className: "min-w-[288px]",
               }}
@@ -321,7 +321,7 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
             <Input
               type="search"
               label="Type here..."
-              className="pr-20"
+              className="hover:cursor-pointer"
               containerProps={{
                 className: "min-w-[288px]",
               }}

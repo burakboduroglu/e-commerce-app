@@ -9,7 +9,7 @@ export default function SingInPage() {
 		<div className="mt-3">
 			<NavbarWithMegaMenu />	
 			<div className="login-form">
-				<form>
+				<form action="#">
 					<h1>Login</h1>
 					<div className="content">
 						<div className="input-field">
@@ -24,7 +24,7 @@ export default function SingInPage() {
 					</div>
 					<div className="action">
 						<button onClick={() => {navigate("/signup")}}>Register</button>
-						<button>Sign in</button>
+						<button onClick={() => {navigate("/")}}>Sign in</button>
 					</div>
 				</form>
 			</div>

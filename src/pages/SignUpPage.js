@@ -37,7 +37,7 @@ export default function SignUpPage() {
                             <h3>I accept all terms & condition</h3>
                         </div>
                         <div className="input-box button">
-                            <input type="Submit" value="Register Now" />
+                            <input type="Submit" value="Register Now" onClick={() => {navigate('/')}} />
                         </div>
                         <div className="text">
                             <h3>
