@@ -24,9 +24,14 @@ export default function CategoryPage(){
 
     return (
         <div>
-            <NavbarWithMegaMenu query={query} setQuery={setQuery}/>
+            <div className="mt-3">
+              <NavbarWithMegaMenu query={query} setQuery={setQuery}/>
+            </div>
             <Category categoryName={categoryName}/>
-            <Footer/> 
+            <div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
+              <Footer/> 
+            </div>
+            
         </div>
     )
 }
