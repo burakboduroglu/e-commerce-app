@@ -247,98 +247,98 @@ export function NavbarWithMegaMenu({ query, setQuery }) {
 
   return (
     <Navbar className="mx-auto max-w-screen-xl p-2 py-2">
-    <div className="flex items-center justify-between text-blue-gray-900">
-      <Typography
-        onClick={() => {
-          navigate("/");
-        }}
-        as="a"
-        href="#"
-        variant="h6"
-        className="mr-4 cursor-pointer py-1.5 lg:ml-2"
-      >
-        SHIRE
-      </Typography>
-      
-      <div className="hidden lg:block">
-        <NavList />
-      </div>
-      <div className="hidden lg:flex">
-        <NavListMenu />
-      </div>
-      
-      <div className="hidden gap-2 lg:flex ml-10">
-        <form>
-          <Input
-            type="search"
-            label="Type here..."
-            className="pr-20"
-            containerProps={{
-              className: "min-w-[288px]",
-            }}
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-          />
-        </form>
-        <Button variant="text" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}}>
-          Sign In
-        </Button>
-        <Button variant="gradient" size="sm" onClick={() => {navigate("/signup")}}>
-          Sign Up
-        </Button>
-      </div>
-      <div className="lg:flex">
-        <ListItem
+      <div className="flex items-center justify-between text-blue-gray-900">
+        <Typography
           onClick={() => {
-            navigate("/checkout");
+            navigate("/");
           }}
-          className="flex gap-2"
+          as="a"
+          href="#"
+          variant="h6"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
         >
-          <ShoppingBagIcon className="h-[15px] w-[15px]" />
-          Cart
-          <p>{cart.length}</p>
-        </ListItem>
+          SHIRE
+        </Typography>
+        
+        <div className="hidden lg:block">
+          <NavList />
+        </div>
+        <div className="hidden lg:flex">
+          <NavListMenu />
+        </div>
+        
+        <div className="hidden gap-2 lg:flex ml-10">
+          <form onSubmit={(event)=>{event.preventDefault()}}>
+            <Input
+              type="search"
+              label="Type here..."
+              className="pr-20"
+              containerProps={{
+                className: "min-w-[288px]",
+              }}
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+            />
+          </form>
+          <Button variant="text" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}}>
+            Sign In
+          </Button>
+          <Button variant="gradient" size="sm" onClick={() => {navigate("/signup")}}>
+            Sign Up
+          </Button>
+        </div>
+        <div className="lg:flex">
+          <ListItem
+            onClick={() => {
+              navigate("/checkout");
+            }}
+            className="flex gap-2"
+          >
+            <ShoppingBagIcon className="h-[15px] w-[15px]" />
+            Cart
+            <p>{cart.length}</p>
+          </ListItem>
+        </div>
+        <IconButton
+          variant="text"
+          color="blue-gray"
+          className="lg:hidden"
+          onClick={() => setOpenNav(!openNav)}
+        >
+          {openNav ? (
+            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+          ) : (
+            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+          )}
+        </IconButton>
       </div>
-      <IconButton
-        variant="text"
-        color="blue-gray"
-        className="lg:hidden"
-        onClick={() => setOpenNav(!openNav)}
-      >
-        {openNav ? (
-          <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-        ) : (
-          <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-        )}
-      </IconButton>
-    </div>
 
-    <Collapse open={openNav}>
-      <div className="flex w-full flex-wrap items-center justify-center gap-2 lg:hidden">
-        <form>
-          <Input
-            type="search"
-            label="Type here..."
-            className="pr-20"
-            containerProps={{
-              className: "min-w-[288px]",
-            }}
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-          />
-        </form>
-        <Button variant="outlined" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}} fullWidth>
-          Sign In
-        </Button>
-        <Button variant="gradient" size="sm" fullWidth onClick={() => {navigate("/signup")}}>
-          Sign Up
-        </Button>
-      </div>
-    </Collapse>
-  </Navbar>
+      <Collapse open={openNav}>
+        <div className="flex w-full flex-wrap items-center justify-center gap-2 lg:hidden">
+          <form onSubmit={(event)=>{event.preventDefault()}}>
+            <Input
+              type="search"
+              label="Type here..."
+              className="pr-20"
+              containerProps={{
+                className: "min-w-[288px]",
+              }}
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+            />
+          </form>
+          <Button variant="outlined" size="sm" color="blue-gray" onClick={()=>{navigate("/signin")}} fullWidth>
+            Sign In
+          </Button>
+          <Button variant="gradient" size="sm" fullWidth onClick={() => {navigate("/signup")}}>
+            Sign Up
+          </Button>
+        </div>
+      </Collapse>
+    </Navbar>
   );
 }
