@@ -147,8 +147,10 @@ function Detail() {
 						{reviews.map((review, index) => (
 							<li key={index}>
 								<p className="user-name-capitals">{review.userName}</p>
-								<div className="stars">{renderStars(review.rating)}</div>
-								<p>{review.comment}</p>
+								<div>
+									<div className="stars">{renderStars(review.rating)}</div>
+									<p>{review.comment}</p>
+								</div>
 							</li>
 						))}
 					</ul>
