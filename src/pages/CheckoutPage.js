@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavbarWithMegaMenu } from "../components/Header";
 import CheckoutCart from "../components/checkout/CheckoutCart";
 import CheckoutAddress from "../components/checkout/CheckoutAddress";
 import CheckoutPayment from "../components/checkout/CheckoutPayment";
 import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import { CartContext } from "../contexts/CartContext";
 
 export default function CheckoutPage() {
   //TODO Create step logic and use checkout components
 
   const [step, setStep] = useState(1);
-
-  return (
+  const { clearCart } = useContext(CartContext)
+  return ( 
     <div className="container m-auto mt-3 tile col-span-3 md:col-span-5 lg:col-span-8">
       <div>
         <NavbarWithMegaMenu />
@@ -37,6 +38,7 @@ export default function CheckoutPage() {
           <CheckoutPayment
             onContinue={() => {
               setStep(4);
+              clearCart()
             }}
             onBack={() => {
               setStep(2);

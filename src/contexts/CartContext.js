@@ -7,6 +7,7 @@ export const CartContext = createContext({
   increaseQuantity: (id) => {},
   decreaseQuantity: (id) => {},
   deleteItem: (id) => {},
+  clearCart: () => {},
 });
 
 const getPersisted = () => {
@@ -82,6 +83,11 @@ export const CartContextProvider = ({ children }) => {
     toast.success("Product added to cart successfully !");
   };
 
+  const clearCart = () => {
+    setCart([]);
+    syncLocalStorage([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -90,6 +96,7 @@ export const CartContextProvider = ({ children }) => {
         increaseQuantity,
         decreaseQuantity,
         deleteItem,
+        clearCart,
       }}
     >
       {children}
