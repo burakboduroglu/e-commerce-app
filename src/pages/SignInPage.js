@@ -7,7 +7,7 @@ export default function SingInPage() {
 	const navigate = useNavigate();
 	return (
 		<div className="mt-3">
-			<NavbarWithMegaMenu />	
+			<NavbarWithMegaMenu />
 			<div className="login-form">
 				<form action="#">
 					<h1>Login</h1>
@@ -23,8 +23,8 @@ export default function SingInPage() {
 						</a>
 					</div>
 					<div className="action">
-						<button onClick={() => {navigate("/signup")}}>Register</button>
-						<button onClick={() => {navigate("/")}}>Sign in</button>
+						<button>Register</button>
+						<button>Sign in</button>
 					</div>
 				</form>
 			</div>
@@ -33,6 +33,6 @@ export default function SingInPage() {
 					<Footer />
 				</div>
 			</div>
-		</div>	
+		</div>
 	);
 }
